@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.routes import events, analytics, stores, auth, recommendations, stream
+from app.api.routes import events, analytics, stores, auth, recommendations
 from app.core.config import settings
 from app.db.session import init_db
 
@@ -28,7 +28,6 @@ app.include_router(auth.router,            prefix="/auth",           tags=["Auth
 app.include_router(stores.router,          prefix="/stores",         tags=["Stores"])
 app.include_router(events.router,          prefix="/ingest",         tags=["Ingestion"])
 app.include_router(analytics.router,       prefix="/analytics",      tags=["Analytics"])
-app.include_router(stream.router,          prefix="/stream",          tags=["Stream"])
 app.include_router(recommendations.router, prefix="/recommendations", tags=["Recommendations"])
 
 @app.get("/health")
