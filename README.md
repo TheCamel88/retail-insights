@@ -39,3 +39,4 @@ and delivers customer behavior insights via a web dashboard.
 
 See `docs/quickstart.md` for setup instructions.
 # retail-insights
+# retail-insights
