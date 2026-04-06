@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts'
 
 const STORE_ID = 'store_001'
-const API = '/api'
+const API = 'https://retail-insights-production.up.railway.app'
 const COLORS = ['#6366f1', '#8b5cf6', '#a78bfa', '#c4b5fd']
 
 const RANGES = [

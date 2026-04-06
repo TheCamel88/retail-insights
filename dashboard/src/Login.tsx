@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+const API = 'https://retail-insights-production.up.railway.app'
+
 export default function Login({ onLogin }: { onLogin: (token: string, email: string) => void }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -9,9 +11,9 @@ export default function Login({ onLogin }: { onLogin: (token: string, email: str
 
   const submit = async () => {
     setLoading(true); setError('')
-    const endpoint = mode === 'login' ? '/api/auth/login' : '/api/auth/signup'
+    const endpoint = mode === 'login' ? '/auth/login' : '/auth/signup'
     const body = mode === 'login' ? { email, password } : { email, password, organization_name: 'My Store' }
-    const r = await fetch(endpoint, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) })
+    const r = await fetch(API + endpoint, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) })
     const d = await r.json()
     setLoading(false)
     if (r.status !== 200) { setError(d.detail || 'Something went wrong'); return }
